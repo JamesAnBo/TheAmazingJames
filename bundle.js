@@ -11,11 +11,14 @@ document.addEventListener('DOMContentLoaded', start)
 function start(){
   var target = document.getElementById('story-text')
   target.innerHTML = index({name: 'testguy'})
-  var player = new Player({health: 100, attackPower: 50})
-  var testEnemy = new Enemy({health: 65, attackPower: 7})
+  var player = new Player({health: 1000,  minAttackPower: 50, maxAttackPower: 75})
+  var testEnemy = new Enemy({health: 650,  minAttackPower: 15, maxAttackPower: 20})
   while(testEnemy.health > 0){
-    console.log('player health: ', player.health, ' enemy health: ', testEnemy.health)
+    var startingPlayerHealth = player.health
+    var startingEnemyHealth = testEnemy.health
+    console.log('player health: ', startingPlayerHealth, ' enemy health: ', startingEnemyHealth)
     player.attack(testEnemy)
+    console.log('player took ', startingPlayerHealth - player.health ,' damage! Enemy took ',startingEnemyHealth - testEnemy.health, ' damage!')
   } console.log('the enemy was defeated!')
 }
 
@@ -23,7 +26,13 @@ function start(){
 var Enemy = function(props) {
   console.log('enemy props', props)
   this.health = props.health
-  this.attackPower = props.attackPower
+  this.minAttackPower = props.minAttackPower
+  this.maxAttackPower = props.maxAttackPower
+}
+
+Enemy.prototype.getAttackDamage = function () {
+  var range = this.maxAttackPower - this.minAttackPower
+  return this.minAttackPower + Math.floor(Math.random()*range)
 }
 
 module.exports = Enemy
@@ -1135,12 +1144,18 @@ module.exports = require("handlebars/runtime")["default"];
 var Player = function(props) {
   console.log('player props', props)
   this.health = props.health
-  this.attackPower = props.attackPower
+  this.maxAttackPower = props.maxAttackPower
+  this.minAttackPower = props.minAttackPower
+}
+
+Player.prototype.getAttackDamage = function () {
+  var range = this.maxAttackPower - this.minAttackPower
+  return this.minAttackPower + Math.floor(Math.random()*range)
 }
 
 Player.prototype.attack = function (enemy) {
-  enemy.health -= this.attackPower
-  this.health -= enemy.attackPower
+  enemy.health -= this.getAttackDamage()
+  this.health -= enemy.getAttackDamage()
 }
 
 module.exports = Player
