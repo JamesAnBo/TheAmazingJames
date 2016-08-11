@@ -4,7 +4,8 @@
   "description": "A game about James. He is amazing!",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "browserify client.js -o bundle.js -t hbsfy"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,12 @@
   "bugs": {
     "url": "https://github.com/JamesAnBo/TheAmazingJames/issues"
   },
-  "homepage": "https://github.com/JamesAnBo/TheAmazingJames#readme"
+  "homepage": "https://github.com/JamesAnBo/TheAmazingJames#readme",
+  "devDependencies": {
+    "browserify": "^13.1.0",
+    "hbsfy": "^2.7.0"
+  },
+  "dependencies": {
+    "handlebars": "^4.0.5"
+  }
 }
