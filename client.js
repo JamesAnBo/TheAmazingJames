@@ -10,3 +10,11 @@ function start(){
   target.innerHTML = index({name: 'testguy'})
 
 }
+
+var attackButton = document.getElementById("attackButton")
+attackButton.onclick = attack();
+
+function attack() {
+  var damage = Math.floor(Math.random() * 10)
+  console.log(damage);
+}

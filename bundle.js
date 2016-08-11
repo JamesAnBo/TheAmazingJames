@@ -12,6 +12,13 @@ function start(){
 
 }
 
+button.addEventListener
+
+function attack() {
+  var damage = Math.floor(Math.random() * 10)
+  console.log(damage);
+}
+
 },{"./views/index.hbs":22}],2:[function(require,module,exports){
 'use strict';
 
@@ -1119,11 +1126,7 @@ module.exports = require("handlebars/runtime")["default"];
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    var helper;
-
-  return "<p> this suggests that clientside rendering is working! Your name is "
-    + container.escapeExpression(((helper = (helper = helpers.name || (depth0 != null ? depth0.name : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"name","hash":{},"data":data}) : helper)))
-    + "</p>  \n";
+    return "<div class=\"flex-container\">\n    <h1>THE AMAZING JAMES!</h1>\n    <h3>And the epic of Scrundgy</h3>\n</div>\n";
 },"useData":true});
 
 },{"hbsfy/runtime":21}]},{},[1]);
