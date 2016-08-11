@@ -10,3 +10,15 @@ function start(){
   target.innerHTML = index({name: 'testguy'})
 
 }
+
+var introButton = document.getElementById("introButton")
+
+// var introArray = ['this is part one', 'this is part 2', 'this is part 3']
+var introduction = function(){
+ for (var i = 0; i < intro.length; i++) {
+   intro[i]
+ }
+ console.log(introduction)
+}
+
+introButton.addEventListener('click', introduction)
