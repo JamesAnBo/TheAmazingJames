@@ -13,6 +13,23 @@ function start(){
   var target = document.getElementById('body')
   target.innerHTML = index({story: 'This is the story.', image: '../public/images/Village_test.jpg'})
 
+  var wonGame = false
+
+  var fight = function() {
+    if(battling && !wonGame){
+        player.attack(testEnemy)
+        if(testEnemy.health <= 0){
+          enemyDead = true
+        }
+        var target = document.getElementById('story-text')
+        var battleText = "Scrundgy's health: " + testEnemy.health + " James's health: " + player.health
+        if(enemyDead){
+          battleText += "<br>  James, obviously too agile, cleaves SCRUNDGE's head in twain .Upon returning to the vilage, he is bestowed the title of AMAZING."
+          wonGame = true
+        }
+        target.innerHTML = battleText
+     }
+  }
 
   var introduction = function(){
     indexIntro ++
@@ -36,6 +53,12 @@ function start(){
       }
     var image = document.getElementById('image')
     image.src = '../public/images/dragonimg_test2.jpg'
+
+      if(wonGame) {
+        var target = document.getElementById('story-text')
+        var victoryText = "Grats, you've won."
+        target.innerHTML = victoryText
+      }
     }
 
     var reset = function() {
@@ -43,21 +66,7 @@ function start(){
       introButton.removeEventListener('click', introduction)
       introButton.removeEventListener('click', beginAdventure)
       resetButton.removeEventListener('click', reset)
-      attackButton.removeEventListener('click', ("click", function() {
-        if(battling){
-          player.attack(testEnemy)
-          if(testEnemy.health <= 0){
-            enemyDead = true
-          }
-          var target = document.getElementById('story-text')
-          var battleText = "Scrundgy's health: " + testEnemy.health + " James's health: " + player.health
-          if(enemyDead){
-            battleText += "<br>  James, obviously too agile, cleaves SCRUNDGE's head in twain .Upon returning to the vilage, he is bestowed the title of AMAZING."
-            battling = false
-          }
-          target.innerHTML = battleText
-       }
-      }))
+      attackButton.removeEventListener('click', ("click", fight))
       start()
     }
 
@@ -65,24 +74,7 @@ function start(){
     resetButton.addEventListener('click', reset)
 
     var attackButton = document.getElementById("attackButton")
-    attackButton.addEventListener("click", function() {
-      if(battling){
-        player.attack(testEnemy)
-        if(testEnemy.health <= 0){
-          enemyDead = true
-          console.log(survive())
-        }
-        var target = document.getElementById('story-text')
-        var battleText = "Scrundgy's health: " + testEnemy.health + " James's health: " + player.health
-        if(enemyDead){
-          battleText += "<br>  James, obviously too agile, cleaves SCRUNDGEY's head in twain .Upon returning to the vilage, he is bestowed the title of AMAZING. GAME OVER"
-          battling = false
-        }
-        target.innerHTML = battleText
-     }
-    })
-
-
+    attackButton.addEventListener("click", fight)
 
   var enemyDead = false
   var battling = false
