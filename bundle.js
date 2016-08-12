@@ -11,13 +11,8 @@ document.addEventListener('DOMContentLoaded', start)
 function start(){
   var target = document.getElementById('story-text')
   target.innerHTML = index({name: 'testguy'})
-<<<<<<< HEAD
-  var player = new Player({health: 100, attackPower: 50})
-  var testEnemy = new Enemy({health: 65, attackPower: 10})
-=======
   var player = new Player({health: 1000,  minAttackPower: 50, maxAttackPower: 75})
   var testEnemy = new Enemy({health: 650,  minAttackPower: 15, maxAttackPower: 20})
->>>>>>> 24333a99851c86599c33c1a6233a1b2b71dc8d8b
   while(testEnemy.health > 0){
     var startingPlayerHealth = player.health
     var startingEnemyHealth = testEnemy.health
@@ -29,16 +24,6 @@ function start(){
   attackButton.addEventListener("click", attack)
 }
 
-// var randomEnemyPower = function() {
-//   return Math.floor(Math.random() * 10)
-// }
-//
-// var randomPlayerPower = function() {
-//   return Math.floor(Math.random() * 20)
-// }
-
-
-//
 function attack() {
   var damage = Math.floor(Math.random() * 10)
   console.log("You did " + damage + " damage!")
