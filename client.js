@@ -75,7 +75,7 @@ function start(){
         var target = document.getElementById('story-text')
         var battleText = "Scrundgy's health: " + testEnemy.health + " James's health: " + player.health
         if(enemyDead){
-          battleText += "<br>  James, obviously too agile, cleaves SCRUNDGE's head in twain .Upon returning to the vilage, he is bestowed the title of AMAZING. GAME OVER"
+          battleText += "<br>  James, obviously too agile, cleaves SCRUNDGEY's head in twain .Upon returning to the vilage, he is bestowed the title of AMAZING. GAME OVER"
           battling = false
         }
         target.innerHTML = battleText
@@ -93,6 +93,6 @@ function start(){
 
   console.log("Scrundgy was here 2016");
 
-  var introArray = ['James awakes up in his small village on the outskirts of westfall...', 'The news board has a display of a fearsome dragon by the name of SCRUNDGE has been terrorising nearby villagesand needs the be slain, JAMES feels like he is up to the challenge!', 'Upon equipping his sword and shield, James begins his adventure off to the dragons lair out in the burning steppes. A long and vicious journey he would surely encounter many foes.', 'Surprisingly, james makes it to the burning steppes uninterrupted, and un-scathed..', 'Upon seeing the SCRUNDGE himself James takes up arms and begins a GLORIOUS battle!']
+  var introArray = ['James awakes up in his small village on the outskirts of westfall...', 'The news board has a display of a fearsome dragon by the name of SCRUNDGEY has been terrorising nearby villagesand needs the be slain, JAMES feels like he is up to the challenge!', 'Upon equipping his sword and shield, James begins his adventure off to the dragons lair out in the burning steppes. A long and vicious journey he would surely encounter many foes.', 'Surprisingly, james makes it to the burning steppes uninterrupted, and un-scathed..', 'Upon seeing the SCRUNDGEY himself James takes up arms and begins a GLORIOUS battle!']
   var indexIntro = -1
 }
