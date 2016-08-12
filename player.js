@@ -13,6 +13,7 @@ Player.prototype.getAttackDamage = function () {
 Player.prototype.attack = function (enemy) {
   enemy.health -= this.getAttackDamage()
   this.health -= enemy.getAttackDamage()
+  console.log('attack happened! enemy health:', enemy.health, ' player health: ', this.health)
 }
 
 module.exports = Player
