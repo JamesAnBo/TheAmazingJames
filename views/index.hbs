@@ -2,12 +2,17 @@
   <img class="central-img" src="../public/images/dragonimg_test2.jpg" alt="dragonimg_test" />
   <div class="flex-bottom">
     <div class="story-box">
-      <p>{{story}}</p>
+      <div id="story-text">
+
+      </div>
+        <div class="continue-button">
+          <button class="passive-button" id="introButton" type="button" name="button">Continue</button>
+        </div>
     </div>
     <div class="options-box">
       <div class="button">
-        <button id="attackButton" type="button" name="button">Attack!</button><br>
-        <button id="introButton" type="button" name="button">More!</button>
+        <button class="aggro-button" id="attackButton" type="button" name="button">Attack!</button>
+        <button class="passive-button" id="resetButton" type="button" name="button">Run Away!</button>
       </div>
     </div>
   </div>
