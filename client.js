@@ -33,6 +33,31 @@ function start(){
       }
     }
 
+    var reset = function() {
+      console.log("help what's happening")
+      introButton.removeEventListener('click', introduction)
+      introButton.removeEventListener('click', beginAdventure)
+      resetButton.removeEventListener('click', reset)
+      attackButton.removeEventListener('click', ("click", function() {
+        if(battling){
+          player.attack(testEnemy)
+          if(testEnemy.health <= 0){
+            enemyDead = true
+          }
+          var target = document.getElementById('story-text')
+          var battleText = "we are battling like champions! <br> enemy's health: " + testEnemy.health + " player's health: " + player.health
+          if(enemyDead){
+            battleText += "<br> the enemy has been slain!"
+            battling = false
+          }
+          target.innerHTML = battleText
+       }
+      }))
+      start()
+    }
+        
+    var resetButton = document.getElementById('resetButton')
+    resetButton.addEventListener('click', reset)
 
     var attackButton = document.getElementById("attackButton")
     attackButton.addEventListener("click", function() {
