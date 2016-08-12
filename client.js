@@ -28,9 +28,13 @@ function start(){
   attackButton.addEventListener("click", attack)
 }
 
-function attack() {
-  var damage = Math.floor(Math.random() * 10)
+function attack(player) {
+  // var playerPower = player.minAttackPower
+  var damage = 50 + Math.floor(Math.random() * 25)
+  var target = document.getElementById('attackDamage')
+  target.innerHTML = damage
   console.log("You did " + damage + " damage!")
+  // console.log("You did this: ", playerPower );
 }
 
 
