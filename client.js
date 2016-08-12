@@ -59,6 +59,7 @@ function start(){
   var player = new Player({health: 1000,  minAttackPower: 50, maxAttackPower: 75})
   var testEnemy = new Enemy({health: 650,  minAttackPower: 15, maxAttackPower: 20})
 
+
   var introArray = ['this is part one', 'this is part 2', 'this is part 3']
   var indexIntro = -1
 }
