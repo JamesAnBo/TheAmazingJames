@@ -1,5 +1,7 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 var index = require ('./views/index.hbs')
+var Enemy = require ('./enemy.js')
+var Player = require ('./player.js')
 
 document.addEventListener('DOMContentLoaded', start)
 
@@ -7,25 +9,52 @@ document.addEventListener('DOMContentLoaded', start)
 
 
 function start(){
+  var introButton = document.getElementById("introButton")
+  console.log('i am a button', introButton)
+  introButton.addEventListener('click', introduction);
+
+
   var target = document.getElementById('story-text')
   target.innerHTML = index({name: 'testguy'})
-
+  var player = new Player({health: 100, attackPower: 50})
+  var testEnemy = new Enemy({health: 65, attackPower: 7})
+  while(testEnemy.health > 0){
+    console.log('player health: ', player.health, ' enemy health: ', testEnemy.health)
+    player.attack(testEnemy)
+  } console.log('the enemy was defeated!')
 }
 
-var introButton = document.getElementById("introButton")
 
 var introArray = ['this is part one', 'this is part 2', 'this is part 3']
-
+var battleText = 'we are battling like champions!'
+var indexIntro = -1
 var introduction = function(){
- for (var i = 0; i < intro.length; i++) {
-   intro[i]
- }
- console.log(introduction)
+  indexIntro ++
+  var target = document.getElementById('story-text')
+  target.innerHTML = introArray[indexIntro]
+
+  var beginAdventure = function(){
+    var target = document.getElementById('story-text')
+    target.innerHTML = battleText
+  }
+
+  if (indexIntro == 2){
+    introButton.removeEventListener('click', introduction)
+    introButton.addEventListener('click', beginAdventure)
+  }
+  console.log('hello i am a test sting');
+ };
+
+},{"./enemy.js":2,"./player.js":23,"./views/index.hbs":24}],2:[function(require,module,exports){
+var Enemy = function(props) {
+  console.log('enemy props', props)
+  this.health = props.health
+  this.attackPower = props.attackPower
 }
 
-button.addEventListener('click', introduction)
+module.exports = Enemy
 
-},{"./views/index.hbs":22}],2:[function(require,module,exports){
+},{}],3:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -93,7 +122,7 @@ exports['default'] = inst;
 module.exports = exports['default'];
 
 
-},{"./handlebars/base":3,"./handlebars/exception":6,"./handlebars/no-conflict":16,"./handlebars/runtime":17,"./handlebars/safe-string":18,"./handlebars/utils":19}],3:[function(require,module,exports){
+},{"./handlebars/base":4,"./handlebars/exception":7,"./handlebars/no-conflict":17,"./handlebars/runtime":18,"./handlebars/safe-string":19,"./handlebars/utils":20}],4:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -199,7 +228,7 @@ exports.createFrame = _utils.createFrame;
 exports.logger = _logger2['default'];
 
 
-},{"./decorators":4,"./exception":6,"./helpers":7,"./logger":15,"./utils":19}],4:[function(require,module,exports){
+},{"./decorators":5,"./exception":7,"./helpers":8,"./logger":16,"./utils":20}],5:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -217,7 +246,7 @@ function registerDefaultDecorators(instance) {
 }
 
 
-},{"./decorators/inline":5}],5:[function(require,module,exports){
+},{"./decorators/inline":6}],6:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -248,7 +277,7 @@ exports['default'] = function (instance) {
 module.exports = exports['default'];
 
 
-},{"../utils":19}],6:[function(require,module,exports){
+},{"../utils":20}],7:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -290,7 +319,7 @@ exports['default'] = Exception;
 module.exports = exports['default'];
 
 
-},{}],7:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -338,7 +367,7 @@ function registerDefaultHelpers(instance) {
 }
 
 
-},{"./helpers/block-helper-missing":8,"./helpers/each":9,"./helpers/helper-missing":10,"./helpers/if":11,"./helpers/log":12,"./helpers/lookup":13,"./helpers/with":14}],8:[function(require,module,exports){
+},{"./helpers/block-helper-missing":9,"./helpers/each":10,"./helpers/helper-missing":11,"./helpers/if":12,"./helpers/log":13,"./helpers/lookup":14,"./helpers/with":15}],9:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -379,7 +408,7 @@ exports['default'] = function (instance) {
 module.exports = exports['default'];
 
 
-},{"../utils":19}],9:[function(require,module,exports){
+},{"../utils":20}],10:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -475,7 +504,7 @@ exports['default'] = function (instance) {
 module.exports = exports['default'];
 
 
-},{"../exception":6,"../utils":19}],10:[function(require,module,exports){
+},{"../exception":7,"../utils":20}],11:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -502,7 +531,7 @@ exports['default'] = function (instance) {
 module.exports = exports['default'];
 
 
-},{"../exception":6}],11:[function(require,module,exports){
+},{"../exception":7}],12:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -533,7 +562,7 @@ exports['default'] = function (instance) {
 module.exports = exports['default'];
 
 
-},{"../utils":19}],12:[function(require,module,exports){
+},{"../utils":20}],13:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -561,7 +590,7 @@ exports['default'] = function (instance) {
 module.exports = exports['default'];
 
 
-},{}],13:[function(require,module,exports){
+},{}],14:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -575,7 +604,7 @@ exports['default'] = function (instance) {
 module.exports = exports['default'];
 
 
-},{}],14:[function(require,module,exports){
+},{}],15:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -610,7 +639,7 @@ exports['default'] = function (instance) {
 module.exports = exports['default'];
 
 
-},{"../utils":19}],15:[function(require,module,exports){
+},{"../utils":20}],16:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -659,7 +688,7 @@ exports['default'] = logger;
 module.exports = exports['default'];
 
 
-},{"./utils":19}],16:[function(require,module,exports){
+},{"./utils":20}],17:[function(require,module,exports){
 (function (global){
 /* global window */
 'use strict';
@@ -683,7 +712,7 @@ module.exports = exports['default'];
 
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],17:[function(require,module,exports){
+},{}],18:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -977,7 +1006,7 @@ function executeDecorators(fn, prog, container, depths, data, blockParams) {
 }
 
 
-},{"./base":3,"./exception":6,"./utils":19}],18:[function(require,module,exports){
+},{"./base":4,"./exception":7,"./utils":20}],19:[function(require,module,exports){
 // Build out our basic SafeString type
 'use strict';
 
@@ -994,7 +1023,7 @@ exports['default'] = SafeString;
 module.exports = exports['default'];
 
 
-},{}],19:[function(require,module,exports){
+},{}],20:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -1120,19 +1149,33 @@ function appendContextPath(contextPath, id) {
 }
 
 
-},{}],20:[function(require,module,exports){
+},{}],21:[function(require,module,exports){
 // Create a simple path alias to allow browserify to resolve
 // the runtime on a supported path.
 module.exports = require('./dist/cjs/handlebars.runtime')['default'];
 
-},{"./dist/cjs/handlebars.runtime":2}],21:[function(require,module,exports){
+},{"./dist/cjs/handlebars.runtime":3}],22:[function(require,module,exports){
 module.exports = require("handlebars/runtime")["default"];
 
-},{"handlebars/runtime":20}],22:[function(require,module,exports){
+},{"handlebars/runtime":21}],23:[function(require,module,exports){
+var Player = function(props) {
+  console.log('player props', props)
+  this.health = props.health
+  this.attackPower = props.attackPower
+}
+
+Player.prototype.attack = function (enemy) {
+  enemy.health -= this.attackPower
+  this.health -= enemy.attackPower
+}
+
+module.exports = Player
+
+},{}],24:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     return "<div class=\"flex-container\">\n    <h1>THE AMAZING JAMES!</h1>\n    <h3>And the epic of Scrundgy</h3>\n</div>\n";
 },"useData":true});
 
-},{"hbsfy/runtime":21}]},{},[1]);
+},{"hbsfy/runtime":22}]},{},[1]);
