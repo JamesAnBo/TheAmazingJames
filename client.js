@@ -11,6 +11,7 @@ function start(){
   var target = document.getElementById('body')
   target.innerHTML = index({story: 'This is the story.'})
 
+
   var introduction = function(){
     indexIntro ++
     var target = document.getElementById('story-text')
@@ -59,12 +60,8 @@ function start(){
   var player = new Player({health: 1000,  minAttackPower: 50, maxAttackPower: 75})
   var testEnemy = new Enemy({health: 650,  minAttackPower: 15, maxAttackPower: 20})
 
+  console.log("Scrundgy was here 2016");
 
   var introArray = ['this is part one', 'this is part 2', 'this is part 3']
   var indexIntro = -1
 }
-
-// function attack() {
-//   var damage = Math.floor(Math.random() * 10)
-//   console.log("You did " + damage + " damage!")
-// }
