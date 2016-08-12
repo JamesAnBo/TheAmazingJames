@@ -16,8 +16,7 @@ function start(){
 
 
   var player = new Player({health: 1000,  minAttackPower: 50, maxAttackPower: 75})
-  var testEnemy = new Enemy({health: 650,  minAttackPower: 15, maxAttackPower: 20})
-  while(testEnemy.health > 0){
+  var testEnemy = new Enemy({health: 650,  minAttackPower: 15, maxAttackPower: 20})  while(testEnemy.health > 0){
     var startingPlayerHealth = player.health
     var startingEnemyHealth = testEnemy.health
     console.log('player health: ', startingPlayerHealth, ' enemy health: ', startingEnemyHealth)
@@ -53,3 +52,9 @@ var introduction = function(){
   }
   console.log('hello i am a test sting');
  };
+
+
+ var reset = function() {
+   start()
+ }
+ 
