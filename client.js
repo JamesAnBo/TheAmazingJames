@@ -9,7 +9,8 @@ document.addEventListener('DOMContentLoaded', start)
 
 function start(){
   var target = document.getElementById('story-text')
-  target.innerHTML = index({name: 'testguy'})
+  target.innerHTML = index({story: 'This is the story.'})
+
   var player = new Player({health: 1000,  minAttackPower: 50, maxAttackPower: 75})
   var testEnemy = new Enemy({health: 650,  minAttackPower: 15, maxAttackPower: 20})
   while(testEnemy.health > 0){
