@@ -7,6 +7,6 @@ document.addEventListener('DOMContentLoaded', start)
 
 function start(){
   var target = document.getElementById('story-text')
-  target.innerHTML = index({name: 'testguy'})
+  target.innerHTML = index({story: 'This is the story.'})
 
 }

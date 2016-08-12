@@ -54,14 +54,15 @@ button:hover {
 }
 
 .title-box {
-  border-radius: 5px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
   background: #8585ad;
   width: auto;
   height: 40px;
   line-height: 60%;
   padding-top: 20px;
   margin: auto;
-  color: white;
+  color: black;
   font-weight: normal;
   text-align: center;
 }
@@ -78,27 +79,25 @@ button:hover {
 }
 
 .story-box {
-  border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
   background: #8585ad;
   padding: 5px;
   width: 400px;
   height: 100px;
-  margin-top: 10px;
-  color: white;
+  margin-top: 0px;
+  color: black;
   font-size: 1em;
   text-align: left;
 }
 
 .options-box{
-  border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
   background: #8585ad;
   padding: 5px;
   width: 400px;
   height: 100px;
-  margin-top: 10px;
-  color: white;
+  margin-top: 0px;
+  color: black;
   font-weight: bold;
   font-size: 3em;
   text-align: center;
