@@ -1,3 +1,4 @@
+
 var index = require ('./views/index.hbs')
 var Enemy = require ('./enemy.js')
 var Player = require ('./player.js')
@@ -18,7 +19,7 @@ function start(){
     var target = document.getElementById('story-text')
     target.innerHTML = introArray[indexIntro]
 
-    if (indexIntro == 2){
+    if (indexIntro == introArray.length-1){
       introButton.removeEventListener('click', introduction)
       introButton.addEventListener('click', beginAdventure)
     }
@@ -27,7 +28,7 @@ function start(){
     var beginAdventure = function(){
       if(!battling){
       var target = document.getElementById('story-text')
-      var battleText = "we are battling like champions! <br> enemy's health: " + testEnemy.health + " player's health: " + player.health
+      var battleText = "Scrundgy's health: " + testEnemy.health + " James's health: " + player.health
       target.innerHTML = battleText
       battling = true
       var image = document.getElementById('image')
@@ -49,9 +50,9 @@ function start(){
             enemyDead = true
           }
           var target = document.getElementById('story-text')
-          var battleText = "we are battling like champions! <br> enemy's health: " + testEnemy.health + " player's health: " + player.health
+          var battleText = "Scrundgy's health: " + testEnemy.health + " James's health: " + player.health
           if(enemyDead){
-            battleText += "<br> the enemy has been slain!"
+            battleText += "<br>  James, obviously too agile, cleaves SCRUNDGE's head in twain .Upon returning to the vilage, he is bestowed the title of AMAZING."
             battling = false
           }
           target.innerHTML = battleText
@@ -72,9 +73,9 @@ function start(){
           console.log(survive())
         }
         var target = document.getElementById('story-text')
-        var battleText = "we are battling like champions! <br> enemy's health: " + testEnemy.health + " player's health: " + player.health
+        var battleText = "Scrundgy's health: " + testEnemy.health + " James's health: " + player.health
         if(enemyDead){
-          battleText += "<br> the enemy has been slain!"
+          battleText += "<br>  James, obviously too agile, cleaves SCRUNDGEY's head in twain .Upon returning to the vilage, he is bestowed the title of AMAZING. GAME OVER"
           battling = false
         }
         target.innerHTML = battleText
@@ -92,6 +93,6 @@ function start(){
 
   console.log("Scrundgy was here 2016");
 
-  var introArray = ['this is part one', 'this is part 2', 'this is part 3']
+  var introArray = ['James awakes up in his small village on the outskirts of westfall...', 'The news board has a display of a fearsome dragon by the name of SCRUNDGEY has been terrorising nearby villagesand needs the be slain, JAMES feels like he is up to the challenge!', 'Upon equipping his sword and shield, James begins his adventure off to the dragons lair out in the burning steppes. A long and vicious journey he would surely encounter many foes.', 'Surprisingly, james makes it to the burning steppes uninterrupted, and un-scathed..', 'Upon seeing the SCRUNDGEY himself James takes up arms and begins a GLORIOUS battle!']
   var indexIntro = -1
 }
