@@ -20,16 +20,6 @@ function start(){
   attackButton.addEventListener("click", attack)
 }
 
-// var randomEnemyPower = function() {
-//   return Math.floor(Math.random() * 10)
-// }
-//
-// var randomPlayerPower = function() {
-//   return Math.floor(Math.random() * 20)
-// }
-
-
-//
 function attack() {
   var damage = Math.floor(Math.random() * 10)
   console.log("You did " + damage + " damage!")
