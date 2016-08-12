@@ -1119,11 +1119,7 @@ module.exports = require("handlebars/runtime")["default"];
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    var helper;
-
-  return "<p> this suggests that clientside rendering is working! Your name is "
-    + container.escapeExpression(((helper = (helper = helpers.name || (depth0 != null ? depth0.name : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"name","hash":{},"data":data}) : helper)))
-    + "</p>  \n";
+    return "  <h2 class=\"title-box\">Our story begins...</h1>\n  <img class=\"central-img\" src=\"../public/images/dragonimg_test.jpg\" alt=\"dragonimg_test\" />\n  <div class=\"flex-bottom\">\n    <div class=\"story-box\">\n      <p>Fight, fight, fight!</p>\n    </div>\n    <div class=\"options-box\">\n      <div class=\"button\">\n        <button type=\"button\" name=\"button\">Attack!</button><br>\n        <button type=\"button\" name=\"button\">Run away!</button>\n      </div>\n    </div>\n  </div>\n</div>\n";
 },"useData":true});
 
 },{"hbsfy/runtime":21}]},{},[1]);
