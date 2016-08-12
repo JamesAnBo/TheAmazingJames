@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', start)
 
 function start(){
   var target = document.getElementById('body')
-  target.innerHTML = index({story: 'This is the story.'})
+  target.innerHTML = index({story: 'This is the story.', image: '../public/images/Village_test.jpg'})
 
 
   var introduction = function(){
@@ -30,7 +30,11 @@ function start(){
       var battleText = "we are battling like champions! <br> enemy's health: " + testEnemy.health + " player's health: " + player.health
       target.innerHTML = battleText
       battling = true
+      var image = document.getElementById('image')
+      image.src = '../public/images/Village_test.jpg'
       }
+    var image = document.getElementById('image')
+    image.src = '../public/images/dragonimg_test2.jpg'
     }
 
     var reset = function() {
@@ -55,7 +59,7 @@ function start(){
       }))
       start()
     }
-        
+
     var resetButton = document.getElementById('resetButton')
     resetButton.addEventListener('click', reset)
 
