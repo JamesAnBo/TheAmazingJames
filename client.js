@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', start)
 function start(){
   var target = document.getElementById('body')
   target.innerHTML = index({story: 'This is the story.', image: '../public/images/Village_test.jpg'})
+  document.getElementById('test').style.backgroundImage = "url('./images/windows_xp_bliss.jpg')"
 
   var wonGame = false
 
@@ -53,11 +54,14 @@ function start(){
       }
     var image = document.getElementById('image')
     image.src = '../public/images/dragonimg_test2.jpg'
+    document.getElementById('test').style.backgroundImage = "url('./images/fire_background.jpg')"
 
       if(wonGame) {
         var target = document.getElementById('story-text')
         var victoryText = "Grats, you've won."
         target.innerHTML = victoryText
+        var image = document.getElementById('image')
+        image.src = '../public/images/victory.jpg'
       }
     }
 
