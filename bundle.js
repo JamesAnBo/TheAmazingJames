@@ -12,19 +12,28 @@ function start(){
   var target = document.getElementById('story-text')
   target.innerHTML = index({name: 'testguy'})
   var player = new Player({health: 100, attackPower: 50})
-  var testEnemy = new Enemy({health: 65, attackPower: 7})
+  var testEnemy = new Enemy({health: 65, attackPower: 10})
   while(testEnemy.health > 0){
     console.log('player health: ', player.health, ' enemy health: ', testEnemy.health)
     player.attack(testEnemy)
   } console.log('the enemy was defeated!')
+  var attackButton = document.getElementById("attackButton")
+  attackButton.addEventListener("click", attack)
 }
 
-var attackButton = document.getElementById("attackButton")
-attackButton.onclick = attack();
+// var randomEnemyPower = function() {
+//   return Math.floor(Math.random() * 10)
+// }
+//
+// var randomPlayerPower = function() {
+//   return Math.floor(Math.random() * 20)
+// }
 
+
+//
 function attack() {
   var damage = Math.floor(Math.random() * 10)
-  console.log(damage);
+  console.log("You did " + damage + " damage!")
 }
 
 },{"./enemy.js":2,"./player.js":23,"./views/index.hbs":24}],2:[function(require,module,exports){
