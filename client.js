@@ -19,4 +19,11 @@ function start(){
     player.attack(testEnemy)
     console.log('player took ', startingPlayerHealth - player.health ,' damage! Enemy took ',startingEnemyHealth - testEnemy.health, ' damage!')
   } console.log('the enemy was defeated!')
+  var attackButton = document.getElementById("attackButton")
+  attackButton.addEventListener("click", attack)
+}
+
+function attack() {
+  var damage = Math.floor(Math.random() * 10)
+  console.log("You did " + damage + " damage!")
 }
